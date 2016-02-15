@@ -16,7 +16,9 @@ function timeToRead(wpm){
       contentArray.forEach(function(elem,idx){
         totalContent += (" " + elem.textContent.toString());
       });
-      totalContentArray = totalContent.trim().split(" ");
+      //Regex from http://stackoverflow.com/questions/4328500/how-can-i-strip-all-punctuation-from-a-string-in-javascript-using-regex
+      totalContentArray = totalContent.trim().replace(/[^\w\s]|_/g, "").replace(/\s+/g, " ").split(" ");
+      console.log(totalContentArray);
       readMinutes = Math.floor(totalContentArray.length / wps * 60);
       readSeconds = Math.floor(totalContentArray.length % wps / 60);
       readTime.push(readMinutes, readSeconds);
