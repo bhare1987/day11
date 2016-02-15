@@ -10,7 +10,7 @@ timeToRead: function(wpm){
       readSeconds = 0,
       readTime = [];
       if (typeof args[0] === "undefined") {
-        wps = 260 * 60;
+        wps = 230 * 60;
       } else {
         wps = wpm * 60;
       }
