@@ -4,18 +4,15 @@ function timeToRead(){
       totalContent = "",
       totalContentArray = [],
       wpm = 260,
-      readTime = 0;
+      readMinutes = 0,
+      readSeconds = 0,
+      readTime = [];
       contentArray.forEach(function(elem,idx){
         totalContent += (" " + elem.textContent.toString());
       });
-      console.log(totalContent);
       totalContentArray = totalContent.trim().split(" ");
-      console.log(totalContentArray);
-      readTime = (totalContentArray.length / wpm);
-      console.log(readTime);
+      readMinutes = Math.floor(totalContentArray.length / wpm);
+      readSeconds = totalContentArray.length % wpm;
+      readTime.push(readMinutes, readSeconds);
       return readTime;
 }
-
-
-// need to just get the empty content (no tags)
-// need to handle seconds as well.
