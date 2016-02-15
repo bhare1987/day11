@@ -1,7 +1,7 @@
 var readTime = {
-timeToRead: function(wpm){
+timeToRead: function(wpm, selector){
   var args = Array.prototype.slice.call(arguments),
-      content = document.querySelectorAll("article p"),
+      content = document.querySelectorAll(selector),
       contentArray = Array.prototype.slice.call(content),
       totalContent = "",
       totalContentArray = [],
@@ -26,7 +26,7 @@ timeToRead: function(wpm){
 },
 timeToReadView: function(){
   var body = document.getElementsByTagName('body')[0],
-      time = readTime.timeToRead(),
+      time = readTime.timeToRead(230, "article p"),
       container = document.createElement('div'),
       flag = readTime.timeToReadFlag;
     container.className = "time-to-read-view";
