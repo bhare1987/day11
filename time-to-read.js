@@ -3,7 +3,7 @@ function timeToRead(){
       contentArray = Array.prototype.slice.call(content),
       totalContent = "",
       totalContentArray = [],
-      wpm = 260,
+      wps = 260 * 60,
       readMinutes = 0,
       readSeconds = 0,
       readTime = [];
@@ -11,8 +11,8 @@ function timeToRead(){
         totalContent += (" " + elem.textContent.toString());
       });
       totalContentArray = totalContent.trim().split(" ");
-      readMinutes = Math.floor(totalContentArray.length / wpm);
-      readSeconds = totalContentArray.length % wpm;
+      readMinutes = Math.floor(totalContentArray.length / wps * 60);
+      readSeconds = Math.floor(totalContentArray.length % wps / 60);
       readTime.push(readMinutes, readSeconds);
       return readTime;
 }
