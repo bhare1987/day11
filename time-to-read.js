@@ -16,3 +16,14 @@ function timeToRead(){
       readTime.push(readMinutes, readSeconds);
       return readTime;
 }
+
+function timeToReadView() {
+  var body = document.getElementsByTagName('body')[0],
+      time = timeToRead(),
+      container = document.createElement('div');
+      container.className = "time-to-read-view";
+      container.textContent = "Time to read: " + time[0] + " minutes, " + time[1] + " seconds";
+      body.appendChild(container);
+}
+
+timeToReadView();

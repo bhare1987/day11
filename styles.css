@@ -1,0 +1,7 @@
+.time-to-read-view {
+  position: fixed;
+  right: 1%;
+  top: 1%;
+  background-color: white;
+  padding: 5px;
+}
