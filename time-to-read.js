@@ -1,12 +1,18 @@
-function timeToRead(){
-  var content = document.querySelectorAll("article p"),
+function timeToRead(wpm){
+  var args = Array.prototype.slice.call(arguments),
+      content = document.querySelectorAll("article p"),
       contentArray = Array.prototype.slice.call(content),
       totalContent = "",
       totalContentArray = [],
-      wps = 260 * 60,
+      wps = 0,
       readMinutes = 0,
       readSeconds = 0,
       readTime = [];
+      if (typeof args[0] === "undefined") {
+        wps = 260 * 60;
+      } else {
+        wps = wpm * 60;
+      }
       contentArray.forEach(function(elem,idx){
         totalContent += (" " + elem.textContent.toString());
       });
